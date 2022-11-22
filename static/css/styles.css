@@ -11595,7 +11595,7 @@ body {
 }
 @media (min-width: 992px) {
   .masthead {
-    height: 100vh;
+    min-height: 100vh;
     padding: 0;
   }
   .masthead h1, .masthead .h1 {
@@ -11612,7 +11612,7 @@ body {
   width: 100%;
   height: auto;
   padding-top: 10rem;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.5) 100%, #000 100%), url("/assets/img/ShapeDifference.png");
   background-position: center;
   background-repeat: no-repeat;
