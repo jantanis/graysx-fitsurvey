@@ -11595,7 +11595,7 @@ body {
 }
 @media (min-width: 992px) {
   .masthead {
-    min-height: 100vh;
+    height: 100vh;
     padding: 0;
   }
   .masthead h1, .masthead .h1 {
@@ -11626,6 +11626,13 @@ body {
 /*.about-section p {
   margin-bottom: 5rem;
 }*/
+
+@media (max-width: 992px) {
+  .about-section {
+    padding-bottom: 5rem;
+    padding-top: 5rem;
+  }
+}
 
 .projects-section {
   padding: 10rem 0;
@@ -11721,7 +11728,7 @@ body {
   margin-bottom: 20px;
 }
 
-#faq h5{
+#faq h6{
   font-size: 1em;
   margin:0;
   font-weight: bold;
@@ -11732,7 +11739,17 @@ body {
   font-weight: normal;
 }
 
-#faq .faq{
+#faq .faq-content{
   font-size: 0.75em;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+
+#faq .card{
+  background-color: #000000;
+  color: #FFFFFF;
+  border: 1px solid #4EB4FF;
+  padding: 0.5em;
   margin-bottom: 1em;
+  cursor: pointer;
 }

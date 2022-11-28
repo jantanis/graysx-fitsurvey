@@ -11,11 +11,8 @@
                         {{ with site.Data.homepage.main }}
                         <h1 class="mx-auto my-0 text-uppercase">{{ .header.title }}</h1>
                         <h2 class="text-white-50 mx-auto mt-2 mb-5">{{ .header.description }}</h2>
-                            {{ if and .header.button.enable .header.button.url }}
+                            {{ if .header.button.enable }}
                                 <a class="btn btn-primary" href="{{ .header.button.url }}" target="_blank">{{ .header.button.text }}</a>
-                            {{ end }}
-                            {{ if and .header.button.enable .header.button.onclick }}
-                                <a class="btn btn-primary" href="javascript:void(0);" onclick={{ safeJS .header.button.onclick }}>{{ .header.button.text }}</a>
                             {{ end }}
                         {{ end }}
                     </div>
@@ -23,6 +20,31 @@
             </div>
         </header>
 
+        <section class="contact-section bg-black" id="aanbod">
+            <div class="container px-4 px-lg-5">
+                <h2 class="text-white mb-4 text-center">Ons aanbod</h2>
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    {{ range site.Params.aanbod }}
+                    <div class="col-md-3 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-newspaper text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">{{ .name }}</h4>
+                                <hr class="my-4 mx-auto" />
+                                <p>
+                                {{ .included }}
+                                </p>
+                                {{ if .old_price }}
+                                <h5 class="strikethrough">&euro;{{ .old_price }}</h5>
+                                {{ end }}
+                                <h3>&euro;{{ .price }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+        </section>
 
         <!-- About-->
         {{ with site.Data.homepage.about }}
@@ -43,7 +65,24 @@
         </section>
         {{ end }}
 
-  x
+        <section class="contact-section bg-black" id="faq">
+            <div class="container px-4 px-lg-5 justify-content-center">
+                <h2 class="text-white mb-4 text-center">Veelgestelde vragen</h2>
+                    <div>
+                        {{range $index, $element := site.Data.homepage.faq}}
+                        <div class="card h-100" onclick="$('#faq .faq-content').addClass('collapse');$('#faq{{ $index }}').toggleClass('collapse');">
+                                <h6>
+                                        {{ markdownify $element.q }}
+                                </h6>
+                                <div class="collapse faq-content" id="faq{{ $index }}">
+                                        {{ markdownify $element.a }}
+                                </div>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Contact-->
         <section class="contact-section bg-black" id="contact">

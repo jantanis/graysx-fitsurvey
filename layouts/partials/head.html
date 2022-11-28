@@ -13,6 +13,7 @@
     <link href="css/styles.css" rel="stylesheet" />
     {{ $title := print .Site.Title " | " .Title }}
     {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <title>{{ $title }}</title>
     <!-- MailerLite Universal -->
     <script>
