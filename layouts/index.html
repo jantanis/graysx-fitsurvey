@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 {{- partial "head.html" . -}}
 <body id="home">
 {{- partial "header.html" . -}}
@@ -12,7 +12,11 @@
                         <h1 class="mx-auto my-0 text-uppercase">{{ .header.title }}</h1>
                         <h2 class="text-white-50 mx-auto mt-2 mb-5">{{ .header.description }}</h2>
                             {{ if .header.button.enable }}
+                                {{ if .header.button.onclick }}
+                                <a class="btn btn-primary" href="javascript:void(0);" onclick="{{ safeJS .header.button.onclick }}">{{ .header.button.text }}</a>
+                                {{ else }}
                                 <a class="btn btn-primary" href="{{ .header.button.url }}" target="_blank">{{ .header.button.text }}</a>
+                                {{ end }}
                             {{ end }}
                         {{ end }}
                     </div>
