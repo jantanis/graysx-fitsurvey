@@ -28,20 +28,48 @@
             <div class="container px-4 px-lg-5">
                 <h2 class="text-white mb-4 text-center">Ons aanbod</h2>
                 <div class="row gx-4 gx-lg-5 justify-content-center">
-                    {{ range site.Params.aanbod }}
+                    {{ range site.Data.homepage.aanbod }}
                     <div class="col-md-3 mb-3 mb-md-0">
                         <div class="card py-4 h-100">
                             <div class="card-body text-center">
                                 <i class="fas fa-newspaper text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">{{ .name }}</h4>
+                                <h4 class="text-uppercase m-0">{{ .naam }}</h4>
                                 <hr class="my-4 mx-auto" />
                                 <p>
-                                {{ .included }}
+                                {{ .omschrijving }}
                                 </p>
-                                {{ if .old_price }}
-                                <h5 class="strikethrough">&euro;{{ .old_price }}</h5>
+                                {{ if .oude_prijs }}
+                                <h5 class="strikethrough">&euro;{{ .oude_prijs }}</h5>
+                                {{ else }}
+                                <h5>&nbsp;</h5>
                                 {{ end }}
-                                <h3>&euro;{{ .price }}</h5>
+                                <h3>&euro;{{ .prijs }}</h5>
+                                </div>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section bg-black" id="afspraak">
+            <div class="container px-4 px-lg-5">
+                <h2 class="text-white mb-4 text-center">Maak een afspraak</h2>
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <p class="text-center text-white">
+                        Wij hebben geen vaste locatie maar werken met partners. Wij zijn hier elke maand aanwezig zodat je elke maand je progressie kunt zien. Kies hieronder één van onze partners om een afspraak te maken voor een scan.
+                    </p>
+                    {{ range site.Data.homepage.partners }}
+                    <div class="col-md-3 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <img src="{{ .logo }}" width="200"/>
+                                <!--<h4 class="text-uppercase m-0">{{ .naam }}</h4>-->
+                                <hr class="my-4 mx-auto" />
+                                <p>
+                                {{ .adres }}
+                                </p>
+                                <a class="btn btn-primary about-btn" href="{{ .afspraak_url }}" target="_blank">Maak een afspraak</a>
                             </div>
                         </div>
                     </div>

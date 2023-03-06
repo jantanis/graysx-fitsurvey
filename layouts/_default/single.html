@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="nl">
+{{- partial "head.html" . -}}
+<body id="home">
+{{- partial "header.html" . -}}
+
+
+<section class="contact-section bg-black content-page">
+    <div class="container px-4 px-lg-5">
+        <h2 class="text-white mb-4 text-center">{{ .Title }}</h2>
+        <div class="text-white">
+            {{ .Content }}
+        </div>
+    </div>
+</section>
+{{- partial "footer.html" . -}}
+</body>
+</html>

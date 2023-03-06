@@ -11753,3 +11753,15 @@ body {
   margin-bottom: 1em;
   cursor: pointer;
 }
+
+#aanbod{
+  padding-bottom: 5rem;
+}
+
+#afspraak{
+  padding-bottom: 5rem;
+}
+
+.content-page{
+  margin-top: 5rem;
+}
